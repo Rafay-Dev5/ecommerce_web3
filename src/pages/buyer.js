@@ -29,6 +29,24 @@ export const Buyer = () => {
         type: "function",
       },
       {
+        inputs: [
+          {
+            internalType: "address payable",
+            name: "_reciever",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "_amount",
+            type: "uint256",
+          },
+        ],
+        name: "withdraw",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+      {
         inputs: [],
         name: "getAddress",
         outputs: [
@@ -54,26 +72,8 @@ export const Buyer = () => {
         stateMutability: "view",
         type: "function",
       },
-      {
-        inputs: [
-          {
-            internalType: "address payable",
-            name: "_reciever",
-            type: "address",
-          },
-          {
-            internalType: "uint256",
-            name: "_amount",
-            type: "uint256",
-          },
-        ],
-        name: "withdraw",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-      },
     ];
-    const address = "0x59EFB445c67BfFe5f4cB3d9De655672ac5e8a99C";
+    const address = "0xc89217B6ccdeeaa1dD3cBd10AE003de01a31B2dA";
     const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
     const accounts = await web3.eth.getAccounts();
     setAccount(accounts[0]);
@@ -81,6 +81,7 @@ export const Buyer = () => {
     const contract = new web3.eth.Contract(ABI, address);
     setContract(contract);
     console.log("Connected to contract");
+    console.log(contract);
     const contractAddress = await contract.methods.getAddress().call();
     console.log(contractAddress);
     setContractAccount(contractAccount);
