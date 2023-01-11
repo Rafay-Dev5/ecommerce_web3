@@ -5,7 +5,7 @@ const DUMMY_DATA = [
     price: 10000,
     image:
       "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg",
-    description: "A camera",
+    //description: "A camera",
     sellerID: "0xb3EcCC694351668e49bFc71D0961802F649fcDDb",
   },
   {
@@ -14,7 +14,7 @@ const DUMMY_DATA = [
     price: 100000,
     image:
       "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg",
-    description: "A camera",
+    //description: "A camera",
     sellerID: "0xb3EcCC694351668e49bFc71D0961802F649fcDDb",
   },
   {
@@ -23,7 +23,7 @@ const DUMMY_DATA = [
     price: 1000000,
     image:
       "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg",
-    description: "A camera",
+    //description: "A camera",
     sellerID: "0xb3EcCC694351668e49bFc71D0961802F649fcDDb",
   },
 ];

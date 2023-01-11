@@ -19,6 +19,9 @@ const Template = () => {
         <Link href="/seller">
           <Button variant="outlined">Seller</Button>
         </Link>
+        <Link href="/convert">
+          <Button variant="outlined">Convert</Button>
+        </Link>
       </span>
     </div>
   );

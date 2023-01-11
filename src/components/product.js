@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
 const Product = ({
+  ID,
   buy,
   description,
   price,
@@ -14,17 +15,25 @@ const Product = ({
   deposit,
   withdraw,
   sellerID,
+  nftBuy,
 }) => {
   const sendMoney = () => {
-    deposit(price)
+    deposit(ID, price)
       .then(() => {
-        withdraw(sellerID, price).catch(() => {
-          console.log("Withdraw failed");
+        console.log("Product Bought");
+        withdraw(sellerID, price).then(() => {
+          console.log("Withdraw Done");
         });
       })
       .catch(() => {
         console.log("Deposit failed");
       });
+  };
+
+  const sendNFT = () => {
+    nftBuy(sellerID, price).then(() => {
+      console.log("Bought with NFT");
+    });
   };
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -47,15 +56,35 @@ const Product = ({
       </CardActionArea>
       <CardActions>
         {buy ? (
-          <Button
-            size="small"
-            color="primary"
-            onClick={() => {
-              sendMoney();
-            }}
-          >
-            Buy
-          </Button>
+          <>
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => {
+                sendMoney();
+              }}
+            >
+              Buy With Crypto
+            </Button>
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => {
+                sendMoney();
+              }}
+            >
+              Buy with FT
+            </Button>
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => {
+                sendNFT();
+              }}
+            >
+              Buy with NFT
+            </Button>
+          </>
         ) : (
           <Typography variant="caption" color="text.secondary">
             Item up for Sale
